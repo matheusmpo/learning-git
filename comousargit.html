@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    
+<h1>Git e github</h1>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/RGOj5yH7evk?si=J_oq5_JvSIWVdBvd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<hr>
+<h2>Definições</h2>
+<pre>
+    <span style="font-size: 15px">
+    Git -> version control system (free e open source)
+    Github -> website to host repositories
+    Forma de trackear as mudanças no código
+    Diretório -> pasta do computador
+    Terminal ou command line -> interface para comandos em texto
+    CLI -> command line interface (cmd)
+    cd -> change directory
+    repository -> Project or folder where the project is kept
+    </span>
+</pre>
+
+<hr>
+<h2>Instalação</h2>
+<pre>
+    <span style="font-size: 15px">
+    Recomenda-se criar o README.md direto no github
+    Baixar pelo <a href = https://www.atlassian.com/git/tutorials/install-git>[Link para donwload]</a> e não usar o powershell para instalar, usar o git bash
+    </span>
+</pre>
+
+
+<hr>
+<h2>Comandos básicos</h2>
+<pre>
+    <span style="font-size: 15px">
+    <b>clone</b> -> baixar do github para a máquina
+    <b>add</b> -> track changes in Git
+    <b>commit</b> -> save files in Git
+    <b>push</b> -> commits to a remote repo
+    <b>pull</b> -> download changes from remote repo
+    </span>
+</pre>
+
+<hr>
+<h2>Conectando ao github</h2>
+<pre>
+    <span style="font-size: 15px">
+    <h3>[antes, precisa conectar a máquina à conta do github, gerando uma chave SSH local]</h3>
+    <ol><li>Para gerar a chave:<ul>
+        <li><b>ssh-keygen -t rsa -b 4096 "matheusmauriciompo@gmail.com"</b></li>
+        <li>[-t é o tipo de criptografia], [rsa -b é a força] e [email de login do github]</li></li>
+        <li>Enter file in which to save the key (C:/users/[user]/.ssh/id_rsa): <b>nomedachave</b></li></ul>
+        <ul><li>o arquivo fica, por padrão, no diretório "C:/users/[user]/.ssh" e é chamado "id_rsa"</li>
+        <li>enter passphrase: [se quiser]</li>
+        <li>vai gerar duas chaves</li>
+        <ul><li>nomedachave [É A CHAVE PRIVADA - NÃO COMPARTILHAR]</li>
+        <li>nomedachave.pub - é a que vai na interface do github</li></ul></ul>        
+        <li><b>cat nomedachave.pub</b> -> vai printar a chave</li>
+        <li>github.com -> settings -> ssh and gpg Keys -> new ssh key</li>
+        <li>Por último, informar ao terminal a chave gerada - eu usei o git bash para isso</li>
+        <ol><li>Configurar o Git Bash como terminal padrão no VSCode</li>
+        <li>Abra o Command Palette: Ctrl + Shift + P </li>
+        <li>Procure: Terminal: Select Default Profile</li>
+        <li>Escolha: Git Bash  </li>
+        <li>Abra um novo terminal (`Ctrl + ``)</li>
+        <li><b>eval $(ssh-agent)</b> </li>
+        <li><b>ssh-add ~/.ssh/id_rsa</b></li></ol></ol>  
+    </span>
+</pre>
+
+<hr>
+<h2>Básico</h2>
+<pre>
+    <span style="font-size: 15px">
+    <ol><li><b>git status</b> -> mostra todos os arquivos atualizados, criados ou excluídos que não foram salvos em um commit [untracked files significa que o arquivo git ainda não sabe dele, então precisa avisar o git para trackear com git add]
+        <ul><li>ou por ex: git add index.html</li></ul>
+        <li><b>git add .</b> [vai adicionar todos os arquivos, tanto os untracked quanto os modified]</li></li>
+    <li>Para usar algum diretório já existente: <b>git clone</b> git@github.com:user/reponame.git [SSH key]</li>
+    <li><b>git commit -m</b> "Algum título do commit" <b>-m</b> "alguma descrição do commit" 
+[o primeiro -m é a mensagem (obrigatória), e o segundo é a descrição (opcional)]
+[ainda está apenas na máquina local, o commit não foi "subido" ainda]</li>
+    <li><b>git push -u origin master</b>: para enviar ao github<ul>
+        <li>[-u] serve para definir como padrão, depois não precisa mais</li>
+        <li>[origin] -> opção que dá a localização do repositório</li>
+        <li>[master] -> branch que vai receber o push</li></ul></li></ol>
+    </span>
+</pre>
+
+<h2>Se o projeto tiver sido criado localmente</h2>
+<pre><span style="font-size: 15px">
+    <ul><li><b>git remote add origin</b> git@github.com:user/reponame.git para se conectar</li>
+        <li><b>git remote -v</b>: para verificar a qual está conectado</li>
+        <li><b>git remote remove origin</b>: para se desconectar</li></ul>
+</span></pre>
+
+</body>
+</html>
