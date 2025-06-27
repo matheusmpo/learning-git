@@ -1,3 +1,3 @@
-# Curso python e php
+# Curso git
 
 Repositório criado para armazenar conhecimentos sobre git
